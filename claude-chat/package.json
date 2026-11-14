@@ -1,0 +1,67 @@
+{
+  "name": "claude-chat",
+  "version": "2.0.0",
+  "description": "Claude-like chat interface with LangChain PC-access agent",
+  "main": "main.js",
+  "scripts": {
+    "start": "node server.js",
+    "electron": "electron .",
+    "dev": "electron . --inspect",
+    "build": "electron-builder --win",
+    "build:dir": "electron-builder --win --dir"
+  },
+  "dependencies": {
+    "@langchain/core": "^0.3.26",
+    "@langchain/openai": "^0.3.16",
+    "langchain": "^0.3.9",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.claudechat.pcagent",
+    "productName": "Claude Chat",
+    "copyright": "Copyright © 2026",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!dist/**",
+      "!*.log",
+      "!.git/**"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Claude Chat"
+    },
+    "extraResources": [],
+    "asar": true,
+    "asarUnpack": [
+      "node_modules/@langchain/**",
+      "node_modules/langchain/**"
+    ]
+  }
+}

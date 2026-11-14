@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Electron build output
+dist/
+out/
+release/
+build/
+
+# Environment & secrets
+.env
+.env.*
+*.pem
+*.key
+*.secret
+secrets.*
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+
+# Misc
+.cache/
+*.tmp
